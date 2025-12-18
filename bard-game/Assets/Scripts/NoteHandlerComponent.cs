@@ -16,8 +16,8 @@ using UnityEngine;
         [SerializeField]
         private NoteDetectorComponent greatNoteDetector;
     
-        public bool isGoodNote = false;
-        public bool isGreatNote = false;
+        public DetectedNoteEvent goodNote;
+        public DetectedNoteEvent greatNote;
     
         private void Start()
         {
@@ -53,12 +53,14 @@ using UnityEngine;
         
             if (state)
             {
-                if (isGreatNote)
+                if (greatNote is { isDetected: true })
                 {
+                    greatNote.collider.gameObject.SetActive(false);
                     Debug.Log($"Great note {noteType} detected!");
                 }
-                else if (isGoodNote)
+                else if (goodNote is { isDetected: true })
                 {
+                    goodNote.collider.gameObject.SetActive(false);
                     Debug.Log($"Good note {noteType} detected!");
                 }
                 else
@@ -68,13 +70,13 @@ using UnityEngine;
             }
         }
     
-        private void GoodNoteDetected(bool detected)
+        private void GoodNoteDetected(DetectedNoteEvent noteEvent)
         {
-            isGoodNote = detected;
+            goodNote = noteEvent;
         }
     
-        private void GreatNoteDetected(bool detected)
+        private void GreatNoteDetected(DetectedNoteEvent noteEvent)
         {
-            isGreatNote = detected;
+            greatNote = noteEvent;
         }
     }
