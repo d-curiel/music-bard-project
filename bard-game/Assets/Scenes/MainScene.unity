@@ -1195,10 +1195,6 @@ PrefabInstance:
       value: Placeholder (3)
       objectReference: {fileID: 0}
     - target: {fileID: 4543048269171749289, guid: d1aeb9afff6c8194bbac99e7da4c7020, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4543048269171749289, guid: d1aeb9afff6c8194bbac99e7da4c7020, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2
       objectReference: {fileID: 0}
@@ -1237,10 +1233,6 @@ PrefabInstance:
     - target: {fileID: 4543048269171749289, guid: d1aeb9afff6c8194bbac99e7da4c7020, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7091214861383458780, guid: d1aeb9afff6c8194bbac99e7da4c7020, type: 3}
-      propertyPath: assignedNote
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
