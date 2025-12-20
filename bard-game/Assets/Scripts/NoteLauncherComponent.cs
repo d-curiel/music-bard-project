@@ -3,29 +3,27 @@
     public class NoteLauncherComponent : MonoBehaviour
     {
         
+        [Header("Note Configuration")]
+        [SerializeField]
+        private PlayerNoteInput.NoteType assignedNote = PlayerNoteInput.NoteType.A;
+        
         [SerializeField]
         private Transform startSpot;
         
         [SerializeField]
         private Transform endSpot;
-        
-        [SerializeField] private float spawnMinInterval = 1f;
-        [SerializeField] private float spawnMaxInterval = 3f;
     
         public NoteObjectPool notePool;
 
-        private System.Collections.IEnumerator Start()
+        public void SendNote()
         {
-            while (true)
-            {
-                SendNote();
-                yield return new WaitForSeconds(Random.Range(spawnMinInterval, spawnMaxInterval));
-            }
-        }
-
-        void SendNote()
-        {
+            //TODO: Cambiar al POOLTIPADO
             GameObject note = notePool.Get(startSpot.position);
             note.GetComponent<SingleNoteComponent>().Initialize(notePool, startSpot.position, endSpot.position);
+        }
+
+        public PlayerNoteInput.NoteType GetAssignedNote()
+        {
+            return assignedNote;
         }
     }
